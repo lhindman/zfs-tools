@@ -5,7 +5,7 @@ This tool is designed to push a dataset snapshot from a local zfs storage pool t
 
 When the script runs, it attempts to transfer the lastest local snapshot of the specified dataset to the storage pool on the remote server. This is ___NOT___ a bi-directional sync, so if the script detects changes on the destination copy of the dataset, it will attempt to rollback changes on destination to the last referenced snapshot (com.tessercode:snapshot_reference). It is important to monitor the exit status of this script to verify it is running correctly.
 
-## Setup
+## Script Setup
 Once you've copied the script to your server, please edit the following variables to match your environment:
 
 #### Name of the dataset to sync
@@ -19,3 +19,8 @@ DEST_SERVER=""
 
 #### Name of storage pool on remote server
 DEST_POOL=""
+
+## Sync User Setup
+Create a zfs_sync user on both the local and remote servers and setup passwordless ssh access between the two systems.  Once that is in place, password based authentication for this user can be disabled.
+
+On both the local and remote systems, use the provided zfs.sudo file to allow the zfs_sync user to run the specified zfs commands without being prompted for a password.
