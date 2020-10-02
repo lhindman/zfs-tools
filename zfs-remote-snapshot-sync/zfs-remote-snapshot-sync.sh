@@ -30,8 +30,8 @@ DEST_POOL="fountain"
 #
 snap_ref=""
 incremental_xfer=true
-zpool="/sbin/zpool"
-zfs="/sbin/zfs"
+zpool="sudo /sbin/zpool"
+zfs="sudo /sbin/zfs"
 ssh="/usr/bin/ssh"
 
 #
